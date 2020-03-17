@@ -1,0 +1,74 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack:win": "node_modules/.bin/electron-builder --project=. -w -p never"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^8.0.0",
+    "electron-builder": "^22.3.2",
+    "jsdom": "^16.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "electron-store": "^5.1.0",
+    "jquery": "^3.4.1",
+    "uuid": "^3.4.0"
+  },
+  "build": {
+    "appId": "cn.smile-yan.easy-resume",
+    "productName": "EasyResume",
+    "artifactName": "${productName}.${version}.${ext}",
+    "copyright": "Copyright © 2019 smileyan.cn",
+    "asar": true,
+    "directories": {
+      "output": "build-apps",
+      "buildResources": "./"
+    },
+    "electronVersion": "8.0.0",
+    "files": [
+      "!static/js/*.map",
+      "!static/css/*.map"
+    ],
+    "win": {
+      "icon": "icons/myredis.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "menuCategory": true,
+      "allowElevation": false
+    },
+    "linux": {
+      "icon": "icons/",
+      "category": "Utility",
+      "target": [
+        "AppImage"
+      ]
+    },
+    "mac": {
+      "icon": "icons/myredis.ico",
+      "type": "development",
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg"
+      ]
+    }
+  }
+}
